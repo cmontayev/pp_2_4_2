@@ -1,0 +1,5 @@
+web/config/AppInit.class
+web/model/Person.class
+web/config/WebConfig.class
+web/dao/PersonDAO.class
+web/controller/PeopleController.class
