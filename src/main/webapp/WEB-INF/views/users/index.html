@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All users</title>
+</head>
+<body>
+
+<h1>All users</h1>
+
+<p th:text="${headerMessage}">headerMessage</p>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td><a th:href="@{/users/{id}(id=${user.id})}" th:utext="${user.id}">id</a></td>
+            <td><a th:href="@{/users/{id}(id=${user.id})}" th:utext="${user.name}">name</a></td>
+            <td th:utext="${user.age}">age</td>
+            <td><a th:href="@{/users/{id}/edit(id=${user.id})}">Edit</a></td>
+            <td>
+                <form th:method="DELETE" th:action="@{/users/{id}(id=${user.id})}">
+                    <input type="submit" value="Delete"/></form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!--<div th:each="user : ${users}">-->
+<!--    <a th:href="@{/users/{id}(id=${user.id})}"-->
+<!--       th:text="${user.id} + ' ' + ${user.name} + ' ' + ${user.age}">user</a>-->
+<!--</div>-->
+
+<br/>
+<hr/>
+
+<a href="/users/newUser"> New user </a>
+
+</body>
+</html>
