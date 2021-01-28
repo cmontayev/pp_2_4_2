@@ -40,12 +40,11 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void update(Long id, User updatedUser) {
-        User userToBeUpdated = getUserById(id);
-        userToBeUpdated.setName(updatedUser.getName());
-        userToBeUpdated.setAge(updatedUser.getAge());
-    }
+    public void update(User updatedUser) {
 
+        entityManager.merge(updatedUser);
+
+    }
 
 
 }
