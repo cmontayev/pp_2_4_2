@@ -47,4 +47,11 @@ public class UserServiceImp implements UserService {
     public void update(User updatedUser) {
         userDao.update( updatedUser);
     }
+
+    @Transactional
+    @Override
+   public User getByName(String name){
+       return userDao.getByName(name);
+    }
+
 }

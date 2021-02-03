@@ -6,8 +6,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.init.DataSourceInitializer;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -54,6 +57,15 @@ public class JpaConfig {
 //        dataSource.setPassword("sososo");
 //        return dataSource;
 //    }
+//@Bean // инициализатор начальных данных для источника данных
+//public DataSourceInitializer dataSourceInitializer() {
+//    ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
+//    resourceDatabasePopulator.addScript(new ClassPathResource("/db.sql"));
+//    DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
+//    dataSourceInitializer.setDataSource(getDataSource());
+//    dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
+//    return dataSourceInitializer;
+//}
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
