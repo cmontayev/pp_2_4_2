@@ -1,6 +1,7 @@
 package chingis.montayev.web.services;
 
 import chingis.montayev.web.model.Role;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

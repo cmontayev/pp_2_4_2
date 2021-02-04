@@ -8,6 +8,7 @@ package chingis.montayev.web.services;
 
 
 import chingis.montayev.web.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

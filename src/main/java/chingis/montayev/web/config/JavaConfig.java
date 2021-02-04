@@ -14,6 +14,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
 @ComponentScan("chingis.montayev.web")
+//@ComponentScan(basePackages = {"chingis.montayev.web.services"})
 @EnableWebMvc
 public class JavaConfig implements WebMvcConfigurer {
 

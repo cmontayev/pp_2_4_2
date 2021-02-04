@@ -23,8 +23,8 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan("chingis.montayev.web")
-@EnableWebMvc
+//@ComponentScan("chingis.montayev.web")
+//@EnableWebMvc
 @EnableTransactionManagement
 @PropertySource("classpath:db.properties")
 public class JpaConfig {
@@ -57,15 +57,15 @@ public class JpaConfig {
 //        dataSource.setPassword("sososo");
 //        return dataSource;
 //    }
-//@Bean // инициализатор начальных данных для источника данных
-//public DataSourceInitializer dataSourceInitializer() {
-//    ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
-//    resourceDatabasePopulator.addScript(new ClassPathResource("/db.sql"));
-//    DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
-//    dataSourceInitializer.setDataSource(getDataSource());
-//    dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
-//    return dataSourceInitializer;
-//}
+@Bean // инициализатор начальных данных для источника данных
+public DataSourceInitializer dataSourceInitializer() {
+    ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
+    resourceDatabasePopulator.addScript(new ClassPathResource("/db.sql"));
+    DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
+    dataSourceInitializer.setDataSource(getDataSource());
+    dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
+    return dataSourceInitializer;
+}
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
